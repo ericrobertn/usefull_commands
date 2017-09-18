@@ -29,3 +29,7 @@ $When = ((Get-Date).AddDays(-90)).Date
 
 Get-ADUser -Filter {whenCreated -ge $When} -Properties whenCreated
 ```
+## Get Bash in docker container
+```
+docker exec -i -t 665b4a1e17b6 /bin/bash #by ID
+```
