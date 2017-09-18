@@ -1,12 +1,4 @@
-################################
 
-################################
-
-Usefull_commands
-
-Eric Neudorfer
-
-       
 
 ## Copy Group Membership
 
