@@ -33,3 +33,9 @@ Get-ADUser -Filter {whenCreated -ge $When} -Properties whenCreated
 ```
 docker exec -i -t 665b4a1e17b6 /bin/bash #by ID
 ```
+
+## Stop and remove all containers
+```
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```
