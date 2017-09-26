@@ -39,3 +39,8 @@ docker exec -i -t 665b4a1e17b6 /bin/bash #by ID
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
+
+## CMD Ping sweep
+```
+ for /l %i in (1,1,254) do ping -n 1 -w 100 <first three octets of host network>.%i
+```
