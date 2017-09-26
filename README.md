@@ -44,3 +44,12 @@ docker rm $(docker ps -a -q)
 ```
  for /l %i in (1,1,254) do ping -n 1 -w 100 <first three octets of host network>.%i
 ```
+
+
+##For each loop to psloggedon computers
+ for /L %i in (1,1,254) do psloggedon \\10.0.27.%i >> C:\Temp\users_output.txt
+ 
+
+## All Users created in last 90 days
+ get-aduser -filter * -Properties whencreated | where-object {$_.whencreated -ge ((get-date).adddays(-90)).date} | Export-Csv C:\Temp\new_users.csv
+ 
