@@ -4,3 +4,4 @@ find / -iname "*" -type f -print0  |  xargs -0 grep -H "TEXT" | more
 
 ## Cent OS firewalld
 firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload
