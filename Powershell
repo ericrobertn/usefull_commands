@@ -1,1 +1,19 @@
 
+## Copy Group Membership
+
+```
+Add-ADGroupMember 'GROUP2' -members (Get-ADGroupMember 'GROUP1' | Select -ExpandProperty samaccountname)
+```
+
+
+## Find new users
+
+```
+$When = ((Get-Date).AddDays(-90)).Date
+
+Get-ADUser -Filter {whenCreated -ge $When} -Properties whenCreated
+```
+## All Users created in last 90 days
+ ```
+ get-aduser -filter * -Properties whencreated | where-object {$_.whencreated -ge ((get-date).adddays(-90)).date} | Export-Csv C:\Temp\new_users.csv
+ ```
