@@ -5,3 +5,10 @@ find / -iname "*" -type f -print0  |  xargs -0 grep -H "TEXT" | more
 ## Cent OS firewalld
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --reload
+
+## Find large files
+du -hs * | sort -rh | head -5
+
+## Sub Dirs
+du -Sh | sort -rh | head -5
+ 
