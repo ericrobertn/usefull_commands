@@ -1,1 +1,7 @@
 
+## VMWARE GET IPs
+
+
+get-vm | select Name,@{N="IP Address";E={@($_.guest.IPAddress[0])}}  | Out-GridView
+#OR
+out-file c:\VM_IP_Addresses.csv
