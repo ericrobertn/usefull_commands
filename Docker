@@ -1,6 +1,9 @@
 ## Get Bash in docker container
 docker exec -i -t 665b4a1e17b6 /bin/bash #by ID
 
+## root (id = 0) is the default user within a container. 
+docker exec -u 0 -it mycontainer bash
+
 ## Stop and remove all containers
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
