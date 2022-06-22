@@ -1,7 +1,15 @@
-
-## VMWARE GET IPs
-
+####################
+##### VMWARE GET IPs
 
 get-vm | select Name,@{N="IP Address";E={@($_.guest.IPAddress[0])}}  | Out-GridView
 #OR
 out-file c:\VM_IP_Addresses.csv
+
+#####################################
+#####Get VM cluster, name, createDate
+
+$VMs = Get-VM
+$Output = foreach ($VM in $VMs){
+Get-VM $VM | select @{N="Cluster";E={Get-Cluster -VM $_}}, Name, @{N="Created Date";E={ $_.ExtensionData.Config.createDate}}
+}
+$Output 
